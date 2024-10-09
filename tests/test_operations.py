@@ -2,26 +2,45 @@
 import pytest
 from app.operation import addition, subtraction, multiplication, division
 
-def test_basic_addition():
+
+# Parameterized test for addition
+@pytest.mark.parametrize("a, b, result", [
+    (4, 1, 5),
+    (10, 2, 12),
+])
+def test_addition(a, b, result):
     """Test Addition Function"""
-    assert addition(4, 1) == 5
+    assert addition(a, b) == result
 
-def test_basic_subtraction():
+# Parameterized test for subtraction
+@pytest.mark.parametrize("a, b, result", [
+    (8, 3, 5),
+    (10, 8, 2),
+    (5, 3, 2),
+])
+def test_subtraction(a, b, result):
     """Test Subtraction Function"""
-    assert subtraction(8, 3) == 5
-    assert subtraction(10, 8) == 2
-    assert subtraction(5, 3) == 2
+    assert subtraction(a, b) == result
 
-def test_basic_multiplication():
+# Parameterized test for multiplication
+@pytest.mark.parametrize("a, b, result", [
+    (3, 3, 9),
+    (4, 5, 20),
+])
+def test_multiplication(a, b, result):
     """Test Multiplication Function"""
-    assert multiplication(3, 3) == 9
-    assert multiplication(4, 5) == 20
+    assert multiplication(a, b) == result
 
-def test_basic_division():
+# Parameterized test for division
+@pytest.mark.parametrize("a, b, result", [
+    (10, 2, 5),
+    (25, 5, 5),
+])
+def test_division(a, b, result):
     """Test Division Function"""
-    assert division(10, 2) == 5
-    assert division(25, 5) == 5
+    assert division(a, b) == result
 
+# Test for division by zero
 def test_division_by_zero():
     """Test Division by Zero Exception"""
     with pytest.raises(ValueError, match="Cannot divide by zero please provide valid number."):
