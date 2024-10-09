@@ -1,6 +1,6 @@
 """Test module for calculator operations."""
 import pytest
-from app.main import addition, subtraction, multiplication, division
+from app.operation import addition, subtraction, multiplication, division
 
 def test_basic_addition():
     """Test Addition Function"""
@@ -10,6 +10,7 @@ def test_basic_subtraction():
     """Test Subtraction Function"""
     assert subtraction(8, 3) == 5
     assert subtraction(10, 8) == 2
+    assert subtraction(5, 3) == 2
 
 def test_basic_multiplication():
     """Test Multiplication Function"""
